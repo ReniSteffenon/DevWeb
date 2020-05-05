@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>TecnoBlog - O seu Blog de Tecnologia</title>
+	<title>AprendaMais</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
@@ -12,6 +12,11 @@
 		function mostrarMaisC1(id){
 			id.innerHTML = "Curso pratico de desenvolvimento de programas em C. Aprenda e domine a programação de computadores usando a linguagem C."
 			href_curso_c1.innerHTML = "Aprenda +"
+		}
+
+		function mostrarMaisPython1(id){
+			id.innerHTML = "Aprenda Python do basico ao avançado com expressões Lambdas, iteradores, geradores, orientação a objetos e muito mais!"
+			href_curso_python1.innerHTML = "Aprenda +"
 		}
 
 	</script>
@@ -37,6 +42,19 @@
 					
 				</p>
 				<a id="href_curso_c1" href="curso_c1.html"></a>
+			</div> <!-- fim das postagens-->
+			<!-- inicio das postagens-->
+		</div>
+		<div id="area-postagens">
+			<!-- inicio das postagens-->
+			<div class="postagem">
+				<h2 onmouseover="mostrarMaisPython1(curso_python1)">Programação em Python</h2>
+				<span class="data-postagem">postado 20 janeiro 2020</span>
+				<img width="620px" src="imagens/img_curso_python1.jpg">
+				<p id='curso_python1'>
+					
+				</p>
+				<a id="href_curso_python1" href="curso_python1.html"></a>
 			</div> <!-- fim das postagens-->
 			<!-- inicio das postagens-->
 		</div>
