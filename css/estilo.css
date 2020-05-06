@@ -27,15 +27,43 @@ body{
 	padding: 10px;
 }
 
+#area-principal-curso{
+	padding: 10px;
+	float: left;
+}
+
 #area-postagens{
 	width: 660px;
 	float: left;
 	/*padding: 5px;*/
 }
 
+#area-postagens-apresentacao{
+	width: 860px;
+	float: left;
+	/*padding: 5px;*/
+}
+
+#area-postagens-curso{
+	width: 850px;
+	float: left;
+	/*padding: 5px;*/
+}
+
+#area-lateral-curso{
+	width: 550px;
+	padding: 20px;
+	float: left;
+}
+
 #area-lateral{
 	width: 240px;
 	float: right;
+}
+
+#img-apresentacao{
+	justify-content: center;
+	width:620px;
 }
 
 .postagem{

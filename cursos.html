@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AprendaMais</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+</head>
+<body>
+
+
+	<script>
+		function mostrarMaisC1(id){
+			id.innerHTML = "Curso pratico de desenvolvimento de programas em C. Aprenda e domine a programação de computadores usando a linguagem C."
+			href_curso_c1.innerHTML = "Aprenda +"
+		}
+
+		function mostrarMaisPython1(id){
+			id.innerHTML = "Aprenda Python do basico ao avançado com expressões Lambdas, iteradores, geradores, orientação a objetos e muito mais!"
+			href_curso_python1.innerHTML = "Aprenda +"
+		}
+
+	</script>
+	<div id="area-cabecalho">
+		<div id="area-logo">
+			<h1>Aprenda<span class="branco">Mais+</span></h1>
+		</div>
+		<div id="area-menu">
+			<a href="index.html">Home</a>
+			<a href="cursos.html">Cursos</a>
+			<a href="">Minha conta</a>
+			
+		</div>
+	</div>
+	<div id="area-principal">
+		<div id="area-postagens">
+			<!-- inicio das postagens-->
+			<div class="postagem">
+				<h2 onmouseover="mostrarMaisC1(curso_c1)">Programação em C</h2>
+				<span class="data-postagem">postado 20 janeiro 2020</span>
+				<img width="620px" src="imagens/img_curso_c1.jpg">
+				<p id='curso_c1'>
+					
+				</p>
+				<a id="href_curso_c1" href="curso_c1.html"></a>
+			</div> <!-- fim das postagens-->
+			<!-- inicio das postagens-->
+		</div>
+		<div id="area-lateral">
+			<!-- inicio conteúdo lateral-->
+			<div class="conteudo-lateral">
+				<h3>Autores</h3>
+				<div class="postagem-lateral">
+					<p>
+						Reni A Steffenon
+					</p>
+					<p>
+						Augusto Pasini
+					</p>
+					<p>
+						Henrique Backes
+					</p>
+					
+				</div>
+			</div><!-- inicio conteúdo lateral-->
+		</div>
+		<div id="area-postagens">
+			<!-- inicio das postagens-->
+			<div class="postagem">
+				<h2 onmouseover="mostrarMaisPython1(curso_python1)">Programação em Python</h2>
+				<span class="data-postagem">postado 20 janeiro 2020</span>
+				<img width="620px" src="imagens/img_curso_python1.jpg">
+				<p id='curso_python1'>
+					
+				</p>
+				<a id="href_curso_python1" href="curso_python1.html"></a>
+			</div> <!-- fim das postagens-->
+			<!-- inicio das postagens-->
+		</div>
+
+		
+		<div id="area-rodape">
+			Todos os direitos reservados
+		</div>
+	</div>
+
+</body>
+</html>
