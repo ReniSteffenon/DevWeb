@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Minha conta</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+  </head>
+  <body onload="loadUserData()">
+    <script>
+
+      const descriptionAnonymous =
+        "Ainda não lhe conhecemos bem... Você gostaria de se apresentar um pouco? Conte-nos algumas informações sobre você nos espaços abaixo!";
+      const descriptionUser = "Estas são as informações da sua conta";
+
+      function getStorageValue(value) {
+        return localStorage.getItem(value);
+      }
+
+      const storage_name = getStorageValue("user-name");
+      const storage_id = getStorageValue("user-id");
+
+      function saveUserData() {
+        const formUserName = document.forms["user-account-form"]["input-nome"].value;
+        const formUserId = document.forms["user-account-form"]["input-matricula"].value;
+
+        if (!storage_name) {
+          localStorage.setItem("user-name", formUserName);
+          localStorage.setItem("user-id", formUserId);
+        }
+
+        document.getElementById("account-title").innerHTML = `Olá ${storage_name}!`;
+        document.getElementById(
+          "account-description"
+        ).innerHTML = descriptionUser;
+    }
+
+      function loadUserData() {
+        if (!storage_name) {
+          document.getElementById(
+            "account-description"
+          ).innerHTML = descriptionAnonymous;
+        } else {
+          document.getElementById(
+            "account-title"
+          ).innerHTML = `Olá ${storage_name}!`;
+
+          document.getElementById(
+            "account-description"
+          ).innerHTML = descriptionUser;
+
+          document.getElementById("input-nome").disabled = true; 
+          document.getElementById("input-nome").value = storage_name;     
+
+          document.getElementById("input-matricula").disabled = true; 
+          document.getElementById("input-matricula").value = storage_id;  
+        }
+      }
+
+      function verifyData() { return false}
+
+    </script>
+
+    <div id="area-cabecalho">
+      <div id="area-logo">
+        <h1>Aprenda<span class="branco">Mais+</span></h1>
+      </div>
+      <div id="area-menu">
+        <a href="index.html">Home</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="minhaConta.html">Minha conta</a>
+      </div>
+    </div>
+    <div id="area-principal">
+      <div id="area-postagens">
+        <!-- inicio das postagens-->
+        <div class="postagem">
+          <h2 id="account-title">
+            Olá!
+          </h2>
+          <span class="data-postagem"></span>
+          <form name="user-account-form" onsubmit="saveUserData()">
+              <div id="account-data">
+                  <h4 id="account-description"></h4>
+                  <div id="account-input">
+                      <span>Nome: </span>
+                      <input id="input-nome"/>
+                    </div>
+                    <div id="account-input">
+                        <span>Matricula: </span>
+                        <input id="input-matricula"/>
+                    </div>
+                    <button type="submit">salvar</button>
+                </form>
+          </div>
+        </div>
+        <!-- fim das postagens-->
+        <!-- inicio das postagens-->
+      </div>
+      <div id="area-rodape">
+        Todos os direitos reservados
+      </div>
+    </div>
+  </body>
+</html>
