@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulario</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+  </head>
+  <body onload="loadUserData()">
+    <script>
+
+      const descriptionAnonymous =
+        "Ainda não lhe conhecemos bem... Você gostaria de se apresentar um pouco? Conte-nos algumas informações sobre você nos espaços abaixo!";
+      const descriptionUser = "Estas são as informações da sua conta";
+
+      function getStorageValue(value) {
+        return localStorage.getItem(value);
+      }
+
+      const storage_name = getStorageValue("user-name");
+      const storage_id = getStorageValue("user-id");
+      const storage_JSON = getStorageValue("jason")
+
+      function saveUserData() {
+        var nome = document.forms["user-account-form"]["input-nome"].value;
+        var endereco = document.forms["user-account-form"]["input-endereco"].value;
+        var telefone = document.forms["user-account-form"]["input-telefone"].value;
+        var email = document.forms["user-account-form"]["input-email"].value;
+
+        var usuario = {'nome':nome, 'endereco':endereco, 'telefone':telefone, 'email':email};
+
+        var usuario_json = JSON.stringify(usuario);
+        console.log("Reni")
+        window.print("Reni")
+        console.log(usuario_json);
+
+        localStorage.setItem("user-name", nome);
+        localStorage.setItem("user-id", endereco);
+        localStorage.setItem("jason", usuario_json);
+        
+
+        document.getElementById("account-title").innerHTML = `Olá ${storage_name}!`;
+        document.getElementById("saida-json").innerHTML = `Saida JSON: ${storage_JSON}.`;
+        document.getElementById(
+          "account-description"
+        ).innerHTML = descriptionUser;
+    }
+
+      function loadUserData() {
+        if (!storage_name) {
+          document.getElementById(
+            "account-description"
+          ).innerHTML = descriptionAnonymous;
+        } else {
+          document.getElementById(
+            "account-title"
+          ).innerHTML = `Olá ${storage_name}!`;
+          document.getElementById("saida-json").innerHTML = `Saida JSON: ${storage_JSON}.`;
+          var usuario_obj = JSON.parse(storage_JSON);
+
+          document.getElementById("saida-nome").innerHTML = `Nome: ${usuario_obj.nome}.`;
+          document.getElementById("saida-endereco").innerHTML = `Endereco: ${usuario_obj.endereco}.`;
+          document.getElementById("saida-telefone").innerHTML = `Telefone: ${usuario_obj.telefone}.`;
+          document.getElementById("saida-email").innerHTML = `Email: ${usuario_obj.email}.`;
+
+          document.getElementById(
+            "account-description"
+          ).innerHTML = descriptionUser;
+
+          //document.getElementById("input-nome").disabled = true; 
+          //document.getElementById("input-nome").value = storage_name;     
+
+          //document.getElementById("input-matricula").disabled = true; 
+          //document.getElementById("input-endereco").value = storage_id;  
+        }
+      }
+
+      function verifyData() { return false}
+
+    </script>
+
+    <div id="area-cabecalho">
+      <div id="area-logo">
+        <h1>Aprenda<span class="branco">Mais+</span></h1>
+      </div>
+      <div id="area-menu">
+        <a href="index.html">Home</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="minhaConta.html">Minha conta</a>
+        <a href="formulario.html">Formulario</a>
+      </div>
+    </div>
+    <div id="area-principal">
+      <div id="area-postagens">
+        <!-- inicio das postagens-->
+        <div class="postagem">
+          <h2 id="account-title">
+            Olá!
+          </h2>
+          <span class="data-postagem"></span>
+          <form name="user-account-form" onsubmit="saveUserData()">
+              <div id="account-data">
+                  <h4 id="account-description"></h4>
+                  <div id="account-input">
+                      <span>Nome: </span>
+                      <input id="input-nome"/>
+                    </div>
+                    <div id="account-input">
+                        <span>Endereço: </span>
+                        <input id="input-endereco"/>
+                    </div>
+                    <div id="account-input">
+                        <span>Telefone: </span>
+                        <input id="input-telefone"/>
+                    </div>
+                    <div id="account-input">
+                        <span>E-mail: </span>
+                        <input id="input-email"/>
+                    </div>
+                    <br>
+                    <button type="submit">salvar</button>
+                </form>
+                <br>
+                <div>
+                  <h2>SAIDA DADOS ARMAZENADOS</h2>
+                  <h3 id="saida-json">
+                    Saida JSON:
+                  </h3>
+                  <br>
+                  <h3 id="saida-nome">
+
+                  </h3>
+                  <br>
+                  <h3 id="saida-endereco">
+                    
+                  </h3>
+                  <br>
+                  <h3 id="saida-telefone">
+                    
+                  </h3>
+                  <br>
+                  <h3 id="saida-email">
+                    
+                  </h3>
+                  <br>
+                </div>
+          </div>
+        </div>
+        <!-- fim das postagens-->
+        <!-- inicio das postagens-->
+      </div>
+    </div>
+  </body>
+</html>
